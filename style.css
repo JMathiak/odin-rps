@@ -1,0 +1,30 @@
+.buttonContainer {
+  margin-right: 25px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+}
+
+.uS,
+.cS {
+  margin-right: 25px;
+  display: flex;
+  padding: 5px;
+}
+
+.userScore,
+.computerScore {
+  margin-left: 25px;
+}

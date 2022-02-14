@@ -1,7 +1,33 @@
+// const buttons = document.querySelectorAll('button');
+// buttons.forEach((button) => {
+//   button.addEventListener("click", () => {
+//     console.log(button.id);
+//     game(button.id);
+//   });
+// });
+
+// buttons is a node list. It looks and acts much like an array.
+// const buttons = document.querySelectorAll("button");
+
+// // we use the .forEach method to iterate through each button
+// buttons.forEach((button) => {
+//   // and for each one we add a 'click' listener
+//   button.addEventListener("click", () => {
+//     alert(button.id);
+//   });
+// });
+
 function computerPlay() {
   const opts = ["rock", "paper", "scissors"];
   let ind;
-  ind = Math.floor(Math.random() * 3);
+  let rand = Math.floor(Math.random() * 100);
+  if (rand > 0 && rand < 33.3) {
+    ind = 0;
+  } else if (rand > 33.3 && rand < 67.66) {
+    ind = 1;
+  } else if (rand > 67.66 && rand < 101) {
+    ind = 2;
+  }
   return opts[ind];
 }
 
@@ -45,22 +71,40 @@ function playRound(comp, user) {
   }
 }
 
-function game() {
-  let userScore = 0;
-  let compScore = 0;
-  for (let i = 0; i < 5; i++) {
-    const computerSelection = computerPlay();
-    const userSelection = userMove();
-    let result = playRound(computerSelection, userSelection);
-    if (result === "user") {
-      userScore++;
-    } else if (result === "comp") {
-      compScore++;
-    }
-    console.log("The score is: ");
-    console.log("User: ", userScore);
-    console.log("Computer: ", compScore);
+let userScore = 0;
+let compScore = 0;
+let gameCount = 0;
+const container = document.querySelector("#score");
+function game(choice) {
+  const computerSelection = computerPlay();
+  const userSelection = choice;
+  document.getElementById("userSelection").innerHTML = userSelection;
+  document.getElementById("computerSelection").innerHTML = computerSelection;
+  let result = playRound(computerSelection, userSelection);
+  if (result === "user") {
+    userScore++;
+    gameCount++;
+  } else if (result === "comp") {
+    compScore++;
+    gameCount++;
+  }
+  document.getElementById("userScore").innerHTML = userScore;
+  document.getElementById("computerScore").innerHTML = compScore;
+  console.log("The score is: ");
+  console.log("User: ", userScore);
+  console.log("Computer: ", compScore);
+  if (userScore === 5) {
+    alert("You have won with a score of " + userScore + " to " + compScore);
+    userScore = 0;
+    compScore = 0;
+    document.getElementById("userScore").innerHTML = userScore;
+    document.getElementById("computerScore").innerHTML = compScore;
+  }
+  if (compScore === 5) {
+    alert("You have lost with a score of " + userScore + " to " + compScore);
+    userScore = 0;
+    compScore = 0;
+    document.getElementById("userScore").innerHTML = userScore;
+    document.getElementById("computerScore").innerHTML = compScore;
   }
 }
-
-game();

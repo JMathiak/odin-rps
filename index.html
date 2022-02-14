@@ -6,8 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="rps.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="title">
+        <h1>Rock Paper Scissors</h1>
+    </div>
+    <div class ='container'>
+    <div class="buttonContainer">
+        <button onClick="game('rock')">Rock</button>
+        <button onClick="game('paper')" >Paper</button>
+        <button onClick="game('scissors')">Scissors</button>
+    </div>
+</div>
+<div class = "score">
+    <div class="uS">
+        User Selection: <div id="userSelection"> </div>
+    </div>
+   <div class="cS">
+    Computer Selection: <div id="computerSelection"> </div>
+   </div>
     
+</div>
+    <div class = "score">
+        <div class="uS">
+            User: <div id="userScore"> </div>
+        </div>
+       <div class="cS">
+        Computer: <div id="computerScore"> </div>
+       </div>
+        
+    </div>
 </body>
 </html>
